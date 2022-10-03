@@ -1,3 +1,5 @@
+const { throttle, debounce } = throttleDebounce;
+
 const frameDistance = 100;
 let scene, frames, fullSliderLength;
 
@@ -12,9 +14,11 @@ window.on('load', () => {
 })
 
 
-window.on('scroll', () => {
+const scrollHandler = () => {
   const scrollPosition = Math.floor(document.documentElement.scrollTop);
   const correctedScrollPosition = proportionalPageScrollPosition(scrollPosition, fullSliderLength);
-  
+
   setSceneScrollPosition(scene, correctedScrollPosition);
-})
+}
+
+window.on('scroll', throttle(100, scrollHandler))
