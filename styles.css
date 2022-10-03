@@ -42,44 +42,10 @@ body {
   justify-content: center;
   font-size: 50px;
   transform-style: preserve-3d;
-}
-
-.frame-1 {
-  transform: translateZ(-100px);
-}
-
-.frame-2 {
-  transform: translateZ(-200px);
-}
-
-.frame-3 {
-  transform: translateZ(-300px);
-}
-
-.frame-4 {
-  transform: translateZ(-400px);
-}
-
-.frame-5 {
-  transform: translateZ(-500px);
-}
-
-.frame-6 {
-  transform: translateZ(-600px);
-}
-
-.frame-7 {
-  transform: translateZ(-700px);
-}
-
-.frame-8 {
-  transform: translateZ(-800px);
-}
-
-.frame-9 {
-  transform: translateZ(-900px);
-}
-
-.frame-10 {
-  transform: translateZ(-1000px);
+  transform: translateZ(
+    calc(
+      var(--start-frame-position) +
+      var(--scroll-position)
+    )
+  );
 }
