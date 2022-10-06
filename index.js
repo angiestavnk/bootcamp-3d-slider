@@ -1,16 +1,16 @@
 const { throttle, debounce } = throttleDebounce;
 
-const frameDistance = 100;
+const FRAME_DISTANCE = 1000;
 let scene, frames, fullSliderLength;
 
 window.on('load', () => {
   scene = $('#scene');
 
   frames = $$('.scene-frame');
-  fullSliderLength = frameDistance * (frames.length - 1);
-  setupInitialFramesPosition(frames, frameDistance);
+  fullSliderLength = FRAME_DISTANCE * (frames.length - 1);
+  setupInitialFramesPosition(frames, FRAME_DISTANCE);
 
   framesPrescroll();
 
-  window.on('scroll', throttle(100, scrollModule(scene, fullSliderLength).scrollHandler))
+  window.on('scroll', throttle(100, scrollModule(scene, frames, fullSliderLength).scrollHandler))
 })
